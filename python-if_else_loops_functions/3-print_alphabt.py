@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-print(
-    "".join(c for c in "abcdefghijklmnopqrstuvwxyz" if c not in "qe"), end=''
-)
+for letter in "abcdefghijklmnopqrstuvwxyz":
+    print(letter, end='')
+    
