@@ -16,9 +16,9 @@ class Student:
             A dictionary representation of the object's attributes
         """
         json_dict = {}
-        for attr in dir(self):
+        for attrs in dir(self):
             if not attr.startswith('__'):  # exclude special attributes
-                value = getattr(self, attr)
+                value = getattr(self, attrs)
                 if isinstance(value, (list, dict, str, int, bool)):
-                    json_dict[attr] = value
+                    json_dict[attrs] = value
         return json_dict
