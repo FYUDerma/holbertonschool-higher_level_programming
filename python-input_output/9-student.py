@@ -17,7 +17,7 @@ class Student:
         """
         json_dict = {}
         for attrs in dir(self):
-            if not attr.startswith('__'):  # exclude special attributes
+            if not attrs.startswith('__'):  # exclude special attributes
                 value = getattr(self, attrs)
                 if isinstance(value, (list, dict, str, int, bool)):
                     json_dict[attrs] = value
