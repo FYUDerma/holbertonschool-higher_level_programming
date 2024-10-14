@@ -6,6 +6,7 @@ import json
 
 PORT = 8000
 
+
 class BasicHttpServer(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
@@ -28,7 +29,8 @@ class BasicHttpServer(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            info = {"version": "1.0", "description": "A simple API built with http.server"}
+            info = {"version": "1.0", "description":
+                    "A simple API built with http.server"}
             self.wfile.write(json.dumps(info).encode())
         else:
             self.send_response(404)

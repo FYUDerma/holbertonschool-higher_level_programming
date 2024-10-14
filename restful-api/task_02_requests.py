@@ -12,6 +12,7 @@ def fetch_and_print_posts():
         for post in data:
             print(f"{post['title']}")
 
+
 def fetch_and_save_posts():
     """Fetchs post from the JSONPlaceHolder."""
     url = "https://jsonplaceholder.typicode.com/posts"
