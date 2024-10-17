@@ -73,13 +73,13 @@ def login():
     password = request.json.get("password")
 
     if not username or not password:
-        return jsonify({"ERROR": "Missing username or password"}), 400
+        return jsonify(), 400
 
     if verify_password(username, password):
         access_token = create_access_token(identity=username)
         return jsonify(access_token=access_token), 200
     else:
-        return jsonify({"ERROR": "Bad username or password"}), 401
+        return jsonify(), 401
 
 
 @app.route('/jwt-protected', methods=['GET'])
@@ -95,7 +95,7 @@ def admin_only():
     if users[current_user]["role"] == "admin":
         return jsonify({"Admin Access": "Granted"}), 200
     else:
-        return jsonify({"Admin Access": "Admin access required"}), 401
+        return jsonify({"error": "Admin access required"}), 401
 
 
 if __name__ == '__main__':
