@@ -95,7 +95,7 @@ def admin_only():
     if users[current_user]["role"] == "admin":
         return jsonify({"Admin Access": "Granted"}), 200
     else:
-        return jsonify({"error": "Admin access required"}), 401
+        return jsonify({"error": "Admin access required"}), 403
 
 
 if __name__ == '__main__':
