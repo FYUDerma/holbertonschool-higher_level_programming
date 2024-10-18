@@ -18,9 +18,9 @@ def status():
 
 @app.route("/users/<username>")
 def show_user_profile(username):
-    user_info = users.get(username)
-    if user_info:
-        return jsonify(user_info)
+    users = users.get(username)
+    if users:
+        return jsonify(users)
     else:
         return jsonify({"error": "User  not found"}), 404
 
@@ -42,9 +42,7 @@ def add_user():
         "age": age,
         "city": city
     }
-    return jsonify({'message': 'User  added',
-                    'user': users[username]
-                    }), 201
+    return jsonify({'message': 'User  added', 'user': users[username]}), 201
 
 
 @app.route("/data")
