@@ -63,7 +63,7 @@ def add_user():
         "age": age,
         "city": city
     }
-    return jsonify({'message': 'User  added', 'user': users[username]}), 201
+    return jsonify({'message': 'User added', 'user': users[username]}), 201
 
 
 @app.route("/data")
