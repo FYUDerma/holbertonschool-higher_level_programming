@@ -7,7 +7,7 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
-from flask_jwt_extended import get_jwt
+
 
 app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = "super-secret"
@@ -69,8 +69,8 @@ def basic_protected():
 @app.route("/login", methods=["POST"])
 def login():
 
-    username = request.json.get("username")
-    password = request.json.get("password")
+    username = request.json.get("username", None)
+    password = request.json.get("password", None)
 
     if not username or not password:
         return jsonify(), 400
