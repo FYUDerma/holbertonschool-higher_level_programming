@@ -29,10 +29,10 @@ def show_user_profile(username):
 def add_user():
     if request.is_json:
         data = request.get_json()
-        username = data.get('username', None)
-        name = data.get('name', None)
-        age = data.get('age', None)
-        city = data.get('city', None)
+        username = data.get('username')
+        name = data.get('name')
+        age = data.get('age')
+        city = data.get('city')
 
         if not username:
             return jsonify({"error": "Username is required"}), 400
