@@ -27,7 +27,6 @@ def show_user_profile(username):
 
 @app.route("/add_user", methods=['POST'])
 def post_register():
-    """Add user"""
     if request.is_json:
         data = request.get_json()
         username = data.get("username")
