@@ -38,7 +38,7 @@ class BasicHttpServer(http.server.BaseHTTPRequestHandler):
             }
             self.wfile.write(json.dumps(data).encode('utf-8'))
         else:
-            self.send_response(400)
+            self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"404 Not Found. Endpoint not available.")
