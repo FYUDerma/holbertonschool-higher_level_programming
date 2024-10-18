@@ -16,11 +16,6 @@ def status():
     return "OK"
 
 
-@app.route("/data")
-def data():
-    return jsonify(list(users.keys()))
-
-
 @app.route("/users/<username>")
 def show_user_profile(username):
     user_info = users.get(username)
@@ -48,6 +43,11 @@ def add_user():
         "city": city
     }
     return jsonify({'message': 'User  added', 'user': users[username]}), 201
+
+
+@app.route("/data")
+def data():
+    return jsonify(list(users.keys()))
 
 
 if __name__ == "__main__":
