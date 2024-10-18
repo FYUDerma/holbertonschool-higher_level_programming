@@ -60,12 +60,7 @@ def add_user():
         "age": age,
         "city": city
     }
-
-    if username in users:
-        return jsonify({'message': 'User  already exists'}), 409
-    else:
-        users[username] = data
-        return jsonify({'message': 'User  added', 'user': users[username]}), 201
+    return jsonify({'message': 'User  added', 'user': users[username]}), 201
 
 
 if __name__ == "__main__":
