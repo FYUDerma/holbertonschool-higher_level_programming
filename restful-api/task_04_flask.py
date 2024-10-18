@@ -27,25 +27,24 @@ def show_user_profile(username):
 
 @app.route("/add_user", methods=['POST'])
 def add_user():
-    if request.is_json:
-        data = request.get_json()
-        username = data.get('username')
-        name = data.get('name')
-        age = data.get('age')
-        city = data.get('city')
+    data = request.get_json()
+    username = data.get('username')
+    name = data.get('name')
+    age = data.get('age')
+    city = data.get('city')
 
-        if not username:
-            return jsonify({"error": "Username is required"}), 400
+    if not username:
+        return jsonify({"error": "Username is required"}), 400
 
-        users[username] = {
-            "username": username,
-            "name": name,
-            "age": age,
-            "city": city
-        }
-        return jsonify({'message': 'User  added', 'user': users[username]}), 201
-    else:
-        return jsonify({"error": "Request must be JSON"}), 400
+    users[username] = {
+        "username": username,
+        "name": name,
+        "age": age,
+        "city": city
+    }
+    return jsonify({'message': 'User  added',
+                    'user': users[username]
+                    }), 201
 
 
 @app.route("/data")
