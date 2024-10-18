@@ -3,20 +3,7 @@ from flask import Flask, jsonify, request
 
 
 app = Flask(__name__)
-users = {
-    "jane": {
-        "username": "jane",
-        "name": "Jane",
-        "age": 28,
-        "city": "Los Angeles"
-    },
-    "john": {
-        "username": "john",
-        "name": "John",
-        "age": 30,
-        "city": "New York"
-    }
-}
+users = {}
 
 
 @app.route("/")
@@ -29,7 +16,7 @@ def status():
     return "OK"
 
 
-@app.route("/data", methods=['GET'])
+@app.route("/data")
 def data():
     return jsonify(list(users.keys()))
 
@@ -46,10 +33,10 @@ def show_user_profile(username):
 @app.route("/add_user", methods=['POST'])
 def add_user():
     data = request.get_json()
-    username = data.get('username')
-    name = data.get('name')
-    age = data.get('age')
-    city = data.get('city')
+    username = data.get('username', None)
+    name = data.get('name', None)
+    age = data.get('age', None)
+    city = data.get('city', None)
 
     if not username:
         return jsonify({"error": "Username is required"}), 400
