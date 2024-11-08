@@ -1,13 +1,18 @@
 {% include 'header.html' %}
-<h1>Items List</h1>
+<head>
+    <title>Items List</title>
+</head>
 
-<ul>
-    {% if items %}
-        {% for item in items %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    {% else %}
-        <li>No items found</li>
+<body>
+    <h1>Items List</h1>
+    <ul>
+        {% if items %}
+            {% for item in items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        {% else %}
+    </ul>
+    <p>No items found</p>
     {% endif %}
-</ul>
+</body>
 {% include 'footer.html' %}
