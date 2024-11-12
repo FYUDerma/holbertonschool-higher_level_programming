@@ -166,3 +166,4 @@ cython_debug/
 /main/
 .vscode
 node_modules/
+*.main.js
